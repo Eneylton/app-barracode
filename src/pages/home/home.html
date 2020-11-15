@@ -7,12 +7,32 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-item>
+      <ion-input [(ngModel)]="encodeText" type="text" placeholder="Username"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  
+  <div padding>
+    <button ion-button block (click)="encode()">CÓDIGO DE BARRAS</button>
+  </div>
+
+  <div>
+
+    <button ion-button block (click)="scan()">SCANNER</button>
+
+    <div *ngIf="scanerData.text">
+      <label> CODIGO DE BARRAS</label>
+
+      <br>
+      <span>{{scanerData.text}}</span>
+
+    </div>
+  </div>
+
 </ion-content>
